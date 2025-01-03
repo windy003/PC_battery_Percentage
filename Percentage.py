@@ -21,27 +21,27 @@ def create_battery_image(percentage):
     draw.ellipse([3, 3, 45, 45], fill=bg_color)
     
     try:
-        # 增大字体大小到20
-        font = ImageFont.truetype("msyh.ttc", 20)
+        # 将字体大小增加到32
+        font = ImageFont.truetype("msyh.ttc", 32)
     except:
         font = ImageFont.load_default()
     
     # 计算文字位置使其居中
     text = f"{percentage}"
     text_width = draw.textlength(text, font=font)
-    text_height = 20  # 估计字体高度
+    text_height = 32  # 调整估计字体高度以匹配新的字体大小
     
     x = (48 - text_width) // 2
     y = (48 - text_height) // 2
     
     # 绘制文字描边
-    draw.text((x-1, y), text, font=font, fill='black')
-    draw.text((x+1, y), text, font=font, fill='black')
-    draw.text((x, y-1), text, font=font, fill='black')
-    draw.text((x, y+1), text, font=font, fill='black')
+    draw.text((x-1, y), text, font=font, fill='white')
+    draw.text((x+1, y), text, font=font, fill='white')
+    draw.text((x, y-1), text, font=font, fill='white')
+    draw.text((x, y+1), text, font=font, fill='white')
     
     # 绘制主文字
-    draw.text((x, y), text, font=font, fill='white')
+    draw.text((x, y), text, font=font, fill='black')
     
     return image
 
