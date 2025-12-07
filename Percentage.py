@@ -10,7 +10,7 @@ def create_battery_image(percentage):
     draw = ImageDraw.Draw(image)
     
     # 绘制背景方形
-    bg_color = 'green'
+    bg_color = 'yellow'
     
     # 调整方形大小，保持适当边距
     draw.rectangle([6, 6, 90, 90], fill=bg_color)
@@ -29,17 +29,7 @@ def create_battery_image(percentage):
     x = (96 - text_width) // 2
     y = (96 - text_height) // 2
     
-    # 绘制文字描边来实现加粗效果
-    draw.text((x-2, y), text, font=font, fill='black')
-    draw.text((x+2, y), text, font=font, fill='black')
-    draw.text((x, y-2), text, font=font, fill='black')
-    draw.text((x, y+2), text, font=font, fill='black')
-    draw.text((x-1, y-1), text, font=font, fill='black')
-    draw.text((x+1, y-1), text, font=font, fill='black')
-    draw.text((x-1, y+1), text, font=font, fill='black')
-    draw.text((x+1, y+1), text, font=font, fill='black')
-    
-    # 绘制主文字，改为黑色
+    # 绘制黑色文字（在黄色背景上更清晰）
     draw.text((x, y), text, font=font, fill='black')
     
     return image
@@ -69,7 +59,7 @@ def main():
         create_battery_image(initial_percentage),
         title=f"电池电量: {initial_percentage}%",
         menu=pystray.Menu(    # 添加菜单项
-            pystray.MenuItem("退出", exit_action)
+            pystray.MenuItem("退出(&X)", exit_action)
         )
     )
     
