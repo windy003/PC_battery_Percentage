@@ -10,12 +10,7 @@ def create_battery_image(percentage):
     draw = ImageDraw.Draw(image)
     
     # 绘制背景方形
-    if percentage <= 20:
-        bg_color = 'red'
-    elif percentage <= 50:
-        bg_color = 'yellow'
-    else:
-        bg_color = 'green'
+    bg_color = 'green'
     
     # 调整方形大小，保持适当边距
     draw.rectangle([6, 6, 90, 90], fill=bg_color)
